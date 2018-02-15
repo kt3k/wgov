@@ -1,0 +1,27 @@
+{
+  "name": "wgov",
+  "version": "0.1.0",
+  "description": "A viewer of the go game in SGF format",
+  "main": "dist.js",
+  "scripts": {
+    "test": "kocha",
+    "dist": "microbundle --compress false --format umd"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kt3k/wgov.git"
+  },
+  "keywords": [
+    "go"
+  ],
+  "author": "Yoshiya Hinosawa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kt3k/wgov/issues"
+  },
+  "homepage": "https://github.com/kt3k/wgov#readme",
+  "devDependencies": {
+    "microbundle": "^0.4.3",
+    "query-string": "^5.1.0"
+  }
+}

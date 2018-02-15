@@ -1,0 +1,43 @@
+<head>
+  <script src="../wgo/wgo.min.js"></script>
+  <script src="../wgo/wgo.player.min.js"></script>
+  <script src="../dist.umd.js"></script>
+  <link href="../wgo/wgo.player.css" rel="stylesheet"></script>
+</head>
+<body>
+  <div id="container" style="display: flex; justify-content: center; align-items: center;">
+    <div
+      id="sgf-field"
+      style="display: none; width: 700px; height: 700px;"
+    >
+      <textarea
+        id="sgf-input"
+        style="width: 700px; height: 300px;"
+        placeholder="input sgf data here"></textarea>
+      <button>SAVE</button>
+    </div>
+  </div>
+  <script>
+    var byId = function (id) {
+      return document.getElementById(id)
+    }
+
+    if (wgov.isValidQueryString()) {
+      const el = wgov.createFromQueryString()
+      byId('container').appendChild(el)
+    } else {
+      byId('sgf-field').style.display = ''
+    }
+
+    document.querySelector('#sgf-field button').addEventListener('click', function () {
+      var sgf = byId('sgf-input').value
+
+      if (!sgf || sgf.trim().length === 0) {
+        alert('Input sgf data')
+        return
+      }
+
+      location.href = location.pathname + '?sgf=' + sgf
+    })
+  </script>
+</body>
