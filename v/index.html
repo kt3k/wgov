@@ -5,6 +5,9 @@
   <link href="../wgo/wgo.player.css" rel="stylesheet"></script>
 </head>
 <body>
+  <div id="new-item" style="display: none;">
+    <button>Create New Item</button>
+  </div>
   <div id="container" style="display: flex; justify-content: center; align-items: center;">
     <div
       id="sgf-field"
@@ -15,6 +18,12 @@
         style="width: 700px; height: 300px;"
         placeholder="input sgf data here"></textarea>
       <button>SAVE</button>
+
+      <br />
+      <br />
+      <br />
+
+      <div>sgf 棋譜の作成は<a href="http://gokifu.net/goxikifu.php">こちら</a>のサイトなどを利用してください</div>
     </div>
   </div>
   <script>
@@ -25,6 +34,7 @@
     if (wgov.isValidQueryString()) {
       const el = wgov.createFromQueryString()
       byId('container').appendChild(el)
+      byId('new-item').style.display = ''
     } else {
       byId('sgf-field').style.display = ''
     }
@@ -38,6 +48,9 @@
       }
 
       location.href = location.pathname + '?sgf=' + sgf
+    })
+    document.querySelector('#new-item button').addEventListener('click', function () {
+      location.href = location.pathname
     })
   </script>
 </body>
